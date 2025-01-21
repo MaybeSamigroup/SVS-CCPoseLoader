@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6</TargetFramework>
     <AssemblyName>CCPoseLoader</AssemblyName>
@@ -62,8 +62,13 @@
 			<HintPath>$(GamePath)\BepInEx\SamabakeScramble\interop\IL.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
+		<None Include="config\**" CopyToDirectory="BepinEx\config"/>
 	</ItemGroup>
 	<Target Name="Deploy" AfterTargets="Build">
 		<Copy SourceFiles="$(OutputPath)\$(AssemblyName).dll" DestinationFolder="$(GamePath)\BepInEx\plugins\" />
+	</Target>
+	<Target Name="Release" AfterTargets="Build">
+		<Copy SourceFiles="$(OutputPath)\$(AssemblyName).dll" DestinationFolder="BepinEx\plugins"/>
+		<ZipDirectory SourceDirectory="BepinEx" Overwrite="true" DestinationFile="release.zip"/>
 	</Target>
 </Project>
