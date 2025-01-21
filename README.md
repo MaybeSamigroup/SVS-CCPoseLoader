@@ -19,4 +19,4 @@ Poses to load are defined in .json format, you can made your own in relative pat
 
 There are predefined (and not well tested) list packaged in release.
 
-![Screenshot 2025-01-22 003347](https://github.com/user-attachments/assets/dd06e08a-74b2-4b77-b98d-f997e1b88b04)
+<img width="220" alt="preview" src="https://github.com/user-attachments/assets/294fc550-b227-412d-93f1-8af6fc23b22e" />
