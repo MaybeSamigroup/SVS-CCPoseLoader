@@ -4,8 +4,15 @@ Additional pose loader for SamabakeScramble Character creation
 
 # Prerequests
 
- * BepInEx v6
- 
+ * [BepInEx](https://github.com/BepInEx/BepInEx)
+   * v6.0.0 be 725 or later
+ * [ByteFiddler](https://github.com/BepInEx/BepInEx)
+   * v1.0 or later and suitable configuration
+ * [BepInEx.ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager)
+   * v18.3 or later
+
+Confirmed working under SVS 1.1.4 + [SVS-HF Patch](https://github.com/ManlyMarco/SVS-HF_Patch) 1.6 environment.
+
 # Installation
 
 If you have 1.0.0 version, remove configuretion file at:
