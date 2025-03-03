@@ -2,7 +2,7 @@
 
 Additional pose loader for SamabakeScramble Character creation
 
-# Prerequests
+# Prerequisites
 
  * [BepInEx](https://github.com/BepInEx/BepInEx)
    * v6.0.0 be 725 or later
