@@ -1,6 +1,6 @@
 # SVS-CCPoseLoader
 
-Additional pose loader for SamabakeScramble Character creation
+Additional pose loader for Aicomi and SamabakeScramble Character creation
 
 ## Prerequisites (Aicomi)
 
