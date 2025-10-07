@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6</TargetFramework>
+		<AssemblyName>SVS_CCPoseLoader</AssemblyName>
+		<Description>additional pose loader for SamabakeScramble Character creation</Description>
+		<LangVersion>latest</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<GameName>SamabakeScramble</GameName>
+		<GamePath>$([MSBuild]::GetRegistryValue('HKEY_CURRENT_USER\Software\ILLGAMES\$(GameName)','INSTALLDIR'))</GamePath>
+		<DefineConstants>$(GameName)</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Include="..\CCPoseLoader.cs"/>
+		<Reference Include="0Harmony">
+			<HintPath>$(GamePath)\BepInEx\core\0Harmony.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="BepInEx.Core">
+			<HintPath>$(GamePath)\BepInEx\core\BepInEx.Core.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="BepInEx.Unity.IL2CPP">
+			<HintPath>$(GamePath)\BepInEx\core\BepInEx.Unity.IL2CPP.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Il2CppInterop.Runtime">
+			<HintPath>$(GamePath)\BepInEx\core\Il2CppInterop.Runtime.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Il2Cppmscorlib">
+			<HintPath>$(GamePath)\BepInEx\$(GameName)\interop\Il2Cppmscorlib.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>$(GamePath)\BepInEx\$(GameName)\interop\UnityEngine.CoreModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>$(GamePath)\BepInEx\$(GameName)\interop\UnityEngine.UI.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Unity.TextMeshPro">
+			<HintPath>$(GamePath)\BepInEx\$(GameName)\interop\Unity.TextMeshPro.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>$(GamePath)\BepInEx\$(GameName)\interop\Assembly-CSharp.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="IL">
+			<HintPath>$(GamePath)\BepInEx\$(GameName)\interop\IL.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="CoastalSmell">
+			<HintPath>$(GamePath)\BepInEx\plugins\SVS_CoastalSmell.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+	<Target Name="Deploy" AfterTargets="Build">
+		<Copy SourceFiles="$(OutputPath)\$(AssemblyName).dll" DestinationFolder="$(GamePath)\BepInEx\plugins\" />
+	</Target>
+	<Target Name="Release" AfterTargets="Build">
+		<ItemGroup>
+			<MalePoses Include="..\Resource\$(GameName)\male\*.json"/>
+			<FemalePoses Include="..\Resource\$(GameName)\female\*.json"/>
+		</ItemGroup>
+		<Copy SourceFiles="$(OutputPath)\$(AssemblyName).dll" DestinationFolder="..\Release\$(GameName)\BepinEx\plugins"/>
+		<Copy SourceFiles="@(MalePoses)" DestinationFolder="..\Release\$(GameName)\UserData\plugins\CCPoseLoader\male"/>
+		<Copy SourceFiles="@(FemalePoses)" DestinationFolder="..\Release\$(GameName)\UserData\plugins\CCPoseLoader\female"/>
+		<ZipDirectory SourceDirectory="..\Release\$(GameName)" Overwrite="true" DestinationFile="..\$(AssemblyName).zip"/>
+	</Target>
+	<Target Name="CleanRelease" AfterTargets="Clean">
+		<RemoveDir Directories="..\Release\$(GameName)"/>
+		<Delete Files="..\$(AssemblyName).zip"/>
+	</Target>
+</Project>

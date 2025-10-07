@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AC_CCPoseLoader", "AC\AC_CCPoseLoader.csproj", "{AD57A3FA-E361-6C08-D35B-9DFB8E1ABAE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SVS_CCPoseLoader", "SVS\SVS_CCPoseLoader.csproj", "{98DC019A-9552-78FE-BB35-BEC99AF558EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD57A3FA-E361-6C08-D35B-9DFB8E1ABAE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD57A3FA-E361-6C08-D35B-9DFB8E1ABAE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD57A3FA-E361-6C08-D35B-9DFB8E1ABAE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD57A3FA-E361-6C08-D35B-9DFB8E1ABAE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98DC019A-9552-78FE-BB35-BEC99AF558EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98DC019A-9552-78FE-BB35-BEC99AF558EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98DC019A-9552-78FE-BB35-BEC99AF558EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98DC019A-9552-78FE-BB35-BEC99AF558EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37DB47E2-3FF1-4A3A-9E84-F2DF0A4C85EC}
+	EndGlobalSection
+EndGlobal

@@ -1,5 +1,4 @@
-BepinEx/plugins/
+Release/
 obj/
 bin/
-*.sln
-release.zip
+*.zip

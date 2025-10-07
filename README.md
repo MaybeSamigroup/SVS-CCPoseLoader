@@ -2,54 +2,70 @@
 
 Additional pose loader for SamabakeScramble Character creation
 
-# Prerequests
+## Prerequisites (Aicomi)
 
- * [BepInEx](https://github.com/BepInEx/BepInEx)
-   * v6.0.0 be 725 or later
- * [ByteFiddler](https://github.com/BepInEx/BepInEx)
-   * v1.0 or later and suitable configuration
- * [BepInEx.ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager)
-   * v18.3 or later
+- [AC-HF_Patch](https://github.com/ManlyMarco/AC-HF_Patch)
+  - Message Center
+  - BepInEx.ConfigurationManager
+  - SVS_BepisPlugins
+- [CoastalSmell](https://github.com/MaybeSamigroup/SVS-Fishbone)
+  - 1.1.9 or later
 
-Confirmed working under SVS 1.1.4 + [SVS-HF Patch](https://github.com/ManlyMarco/SVS-HF_Patch) 1.6 environment.
+Confirmed working under Aicomi 1.0.1
 
-# Installation
+## Prerequisites (SamabakeScramble)
 
-If you have 1.0.0 version, remove configuretion file at:
+- [SVS-HF_Patch](https://github.com/ManlyMarco/SVS-HF_Patch)
+  - Message Center
+  - BepInEx.ConfigurationManager
+  - SVS_BepisPlugins
+- [CoastalSmell](https://github.com/MaybeSamigroup/SVS-Fishbone)
+  - 1.1.9 or later
 
- * (game root)/BepInEx/config/SamabakeScramble.CCPoseLoader.cfg
+Confirmed working under SamabakeScramble 1.1.6
 
-and pose definition jsons at:
+## Installation
 
- * (game root)/BepInEx/config/CCPoseLoader
+Extract the [latest release](https://github.com/MaybeSamigroup/SVS-CCPoseLoader/releases/latest) to your game install directory.
 
-Extract the release to game root.
+## Migration from older release
 
-# How to use
+remove directory at:
+
+- (game root)/BepInEx/config/CCPoseLoader
+
+remove files at:
+
+- (game root)/BepInEx/config/SamabakeScramble.CCPoseLoader.cfg
+- (game root)/BepInEx/plugin/CCPoseLoader.dll
+
+## How to use
 
 Start character creation then you'll see addtional poses.
- 
+
+## Configuration
+
+- MalePoseFile
+
+  Pose definition file for male creation mode.
+
+- FemalePoseFile
+
+  Pose definition file for female creation mode.
+
 Poses to load are defined in .json format, you can made your own in relative path from:
 
-```(game root)/BepInEx/config/CCPoseLoader```.
+```(game root)/UserData/plugins/CCPoseLoader```.
 
 There are predefined (and not well tested) list packaged in release.
 
-# Configuration
+## Pose definition format
 
- * MalePoseFile
+- Depth 1 Key
+  Asset bundle path relative from ```(game root)```/abdata
+  - Depth 2 Key
+    AnimatorController asset name to load from parent
+    - Values
+      AnimationClip Names to play in parent
 
-     Pose definition file for male creation mode.
-
- * FemalePoseFile
-
-     Pose definition file for female creation mode.
-
-# Pose definition format
-
- * Depth 1 Key
-   Asset bundle path relative from ```(game root)```/abdata
-   * Depth 2 Key
-     AnimatorController asset name to load from parent
-     * Values
-       AnimationClip Names to play in parent 
+Provided AnimatorController extracted files are partially handwork, so there can be typo or other human errors.
